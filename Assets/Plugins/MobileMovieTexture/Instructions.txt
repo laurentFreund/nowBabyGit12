@@ -1,0 +1,59 @@
+Mobile Movie Texture 1.1.1
+
+Installing the plugin
+	Please move the Plugins directory from here Assets/MobileMovieTexture/Plugins to be in the root Assets/ directory
+	Also move the StreamingAssets directory movies in Assets/MobileMovieTexture/StreamingAssets to be in the root Assets/ directory
+
+	At this point, you might want to try the sample scene MobileMovieTexture/Scenes/MobileMovieTextureTest.unity 
+
+	Press play and you should see a video play on the plane in the scene.
+
+Encoding new movies
+	Mobile Movie Texture only supports ogg theora encoded videos. The easiest way to encode ogg theora is to use http://v2v.cc/~j/ffmpeg2theora/download.html or VLC http://www.videolan.org/vlc/ .
+
+Starting from scratch
+	Firstly you will need a material to play the movie on. Create a new material
+	Set your new material's shader to "Color Space/YCrCbtoRGB"
+
+	Next add the MobileMovieTexture/Scripts/MobileMovieTexture.cs to an active game object in the scene
+	The path string field in MobileMovieTexture points to your movie within the StreamingAssets/ directory without the "StreamingAssets/" on the start of it. Always use forward slashes if you need your movie in a sub directory. Forward slashes work on all platforms.
+
+	Now apply the material you created to an object in the scene.
+
+	That should be it
+
+Changes
+	Version 1.1.1 28/12/2011
+	iOS/Android: Work around a texture allocation bug in Unity if nothing else is drawing in the sample scene, by drawing a gui button
+	
+	Version 1.1 27/12/2011
+	All: platforms now do color space conversion on the gpu. This resulted in a 2x performance increase in iOS and a 1.7x in Android, in my tests.
+	All: There is a big memory saving from not storing the converted 16bit rgb in ram. For example for the test movies, we saved NextPow2(640) * NextPow2(360) * 2 bytes = 1Mb
+	Android: now has cpu features detection and uses NEON instructions where available. iOS always uses NEON.
+	Windows/OSX: use power of 2 YCrCb textures for a massive speed up.
+	Windows/OSX: use SetPixels32 for another speed up.
+	All: Removing the color space conversion code saved ~10k
+	Android: Fixed a bug on when resuming
+	Windows/OSX: Hand code the YCrCb shader to work around bad cgsl compilation by Unity
+	
+	Known issues
+	Android: There is an intermittent crash in the Adreno 200 OpenGL driver on my Nexus one, it crashes deep within the Areno driver in my call to glTexSubImage2D, in rb_texture_find_eviction_candidate in __memcmp16. I will do everything I can to find a solution or a workaround
+
+Tested devices
+
+	Editor
+		Mac OSX Snow Leopard
+		Win7 64  
+
+	iOS
+		iPad 2
+		iPhone 3GS
+		iPhone 4S
+
+	Android
+		Nexus One
+		Samsung Galaxy S2
+		Motorola Xoom
+
+
+If you have any questions/problems drop me a mail dan@defiantdev.com. If you have a great experience, the asset store could do with a comment. If you have a terrible one mail me! If you make anything cool with it, I'd love to know.
