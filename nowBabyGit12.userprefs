@@ -1,9 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/NowBaby/Main.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/NowBaby/createUnivers.js">
     <Files>
       <File FileName="Assets/NowBaby/MoveObject.js" Line="1" Column="1" />
       <File FileName="Assets/NowBaby/Main.js" Line="1" Column="1" />
+      <File FileName="Assets/NowBaby/TextFunctions.js" Line="511" Column="126" />
+      <File FileName="Assets/NowBaby/UniverseMovement.js" Line="1" Column="1" />
+      <File FileName="Assets/NowBaby/createUnivers.js" Line="363" Column="98" />
+      <File FileName="Assets/NowBaby/UniversLetter8.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

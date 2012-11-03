@@ -7,6 +7,7 @@
 // rotation speed
 var speedMin : float = 5.0f ;
 var speedMax : float = 8.0f ;
+var speedRotLetter = 20 ;
 
 // size of the screen
 private var xMin : int =-1 ;
@@ -359,7 +360,7 @@ function moveUnivers(allTexts : Array, univers : UNIVERS, selectedSentence : Gam
 			switch (univers) {
 				case UNIVERS.VORTEX : textFunctions.MoveTextVortex(sentence, Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i]); break;
 				case UNIVERS.LINES : textFunctions.MoveTextLine(sentence,speed); break;
-				case UNIVERS.LINESROTATE : textFunctions.MoveTextLineAndRotate(sentence,speed); break;
+				case UNIVERS.LINESROTATE : textFunctions.MoveTextLineAndRotate(sentence,speed, speedRotLetter); break;
 
 				case UNIVERS.WAVES : textFunctions.MoveTextSinusoideX(sentence , Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i], tablePer[i], speed); break;
 				//case UNIVERS.WAVES : textFunctions.MoveTextSinusoideX(sentence , Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i], tablePer[i], speed); break;

@@ -505,12 +505,13 @@ function MoveTextLine(sentence : GameObject[], speed : float){
 /**
 * move the Text in Line 
 */
-function MoveTextLineAndRotate(sentence : GameObject[], speed : float){
+function MoveTextLineAndRotate(sentence : GameObject[], speed : float, speedRotate: float){
 	for (var i = 0 ; i < sentence.length; i++){
 		if (sentence[i].transform.renderer !=null)
-	    	sentence[i].transform.RotateAround(sentence[i].transform.renderer.bounds.center, Vector3.up, Time.deltaTime*180);
-		sentence[i].transform.Translate(Vector2(2, 0) * Time.deltaTime *speed);
-		}
+	    	sentence[i].transform.RotateAround(sentence[i].transform.renderer.bounds.center, Vector3.up, Time.deltaTime*speedRotate);
+		sentence[i].transform.Translate(Vector3.left * Time.deltaTime*speed, Space.World);
+	
+				}
 }
 /* tmp */
 function CreateText_noRenderer(text : String, id : int, posStart : Vector3, table : GameObject[], line : int, size : float, startAngle : float){	
