@@ -64,6 +64,7 @@ function placeUnivers(univers : UNIVERS, allStr : String[], sentence : GameObjec
 	switch (univers) {
 		case UNIVERS.VORTEX : placeUniversVortex(allStr, main, sentence, table, allTexts, blackOrWhite); break;
 		case UNIVERS.LINES : placeUniversLines(allStr, main, sentence, table, allTexts, blackOrWhite); break;
+		case UNIVERS.LINESROTATE : placeUniversLines(allStr, main, sentence, table, allTexts, blackOrWhite); break;
 		case UNIVERS.WAVES : placeUniversWaves(allStr, main, sentence, table, allTexts, blackOrWhite); break;
 		case UNIVERS.SEAWEEDS : placeUniversSeaweeds(allStr, main, sentence, table, allTexts, blackOrWhite); break;
 		case UNIVERS.CIRCLES : placeUniversCircles(allStr, main, sentence, table, allTexts, blackOrWhite); break;
@@ -358,6 +359,8 @@ function moveUnivers(allTexts : Array, univers : UNIVERS, selectedSentence : Gam
 			switch (univers) {
 				case UNIVERS.VORTEX : textFunctions.MoveTextVortex(sentence, Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i]); break;
 				case UNIVERS.LINES : textFunctions.MoveTextLine(sentence,speed); break;
+				case UNIVERS.LINESROTATE : textFunctions.MoveTextLineAndRotate(sentence,speed); break;
+
 				case UNIVERS.WAVES : textFunctions.MoveTextSinusoideX(sentence , Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i], tablePer[i], speed); break;
 				//case UNIVERS.WAVES : textFunctions.MoveTextSinusoideX(sentence , Vector3(tablePos[i].x, tablePos[i].y - tableRadius[i].x, tablePos[i].z), tableAmp[i], tablePer[i], speed); break;
 

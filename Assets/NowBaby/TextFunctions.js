@@ -493,15 +493,27 @@ function teleportSentenceBack( sentence : GameObject[], nbTotal : int, step : fl
 
 }
 
+/**
+* move the Text in Line 
+*/
 function MoveTextLine(sentence : GameObject[], speed : float){
 	for (var i = 0 ; i < sentence.length; i++){
 		sentence[i].transform.Translate(Vector2(2, 0) * Time.deltaTime *speed);
 	}
 }
 
+/**
+* move the Text in Line 
+*/
+function MoveTextLineAndRotate(sentence : GameObject[], speed : float){
+	for (var i = 0 ; i < sentence.length; i++){
+		if (sentence[i].transform.renderer !=null)
+	    	sentence[i].transform.RotateAround(sentence[i].transform.renderer.bounds.center, Vector3.up, Time.deltaTime*180);
+		sentence[i].transform.Translate(Vector2(2, 0) * Time.deltaTime *speed);
+		}
+}
 /* tmp */
-function CreateText_noRenderer(text : String, id : int, posStart : Vector3, table : GameObject[], line : int, size : float, startAngle : float)
-{	
+function CreateText_noRenderer(text : String, id : int, posStart : Vector3, table : GameObject[], line : int, size : float, startAngle : float){	
 
 	var TableObject : GameObject[] = new GameObject[text.Length];
 	
@@ -531,7 +543,5 @@ function CreateText_noRenderer(text : String, id : int, posStart : Vector3, tabl
 		}
 		
 	}
-	
-	
 	return TableObject ; // L. Freund, DEBUG
 }

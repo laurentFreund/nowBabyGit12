@@ -49,7 +49,7 @@
 		var selectedSentence : GameObject[];
 		var selectedLetter : int;
 		
-		enum UNIVERS {LINES, VORTEX, CIRCLES, WAVES, ALL, SEAWEEDS, COCENTRIC_CIRCLES};
+		enum UNIVERS {LINES, LINESROTATE, VORTEX, CIRCLES, WAVES, ALL, SEAWEEDS, COCENTRIC_CIRCLES};
 		enum STATES {SCENE_INIT, NEXT_SENTENCE, MOVING2NEXT, MOVING2UNIV, FADING_UNIV, DESTROYING_UNIVERSE,TELEPORTING_UNIVERSE, SENTENCE_FOCUS, TRANSITION_UNIVERSE, BLACK_OUT};
 		var state : STATES = STATES.SCENE_INIT;
 		private var autoTimer : float;
@@ -192,14 +192,14 @@
 			//place Universe
 			//currentUnivers = Random.Range(0,6);
 			//tmpUniv = (tmpUniv + 1 ) % 7 ;
-			currentUnivers = UNIVERS.ALL ;
+			currentUnivers = UNIVERS.LINESROTATE ;
 			univ.placeUnivers(currentUnivers, allStr, sentence, table, allTexts, blackOrWhite) ;
 			
 			// compute number to hide that are to far away
 			if (allStr.length < nbToDisplay)
 				nbToDisplay = allStr.length ;
 		
-			   // hide sentences that are to far away
+			// hide sentences that are to far away
 			for(var i=0 ; i < allStr.length ; i++){
 			   if (i > nBACK)
 			   		textFunctions.setVisibleSentence( allTexts[i] ,false, Color.grey) ;
